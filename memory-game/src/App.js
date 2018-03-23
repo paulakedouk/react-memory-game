@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import animals from './animals.json';
 
+import Title from './components/Title/Title';
+
 class App extends Component {
   state = {
     animals
@@ -17,7 +19,11 @@ class App extends Component {
   reset = () => {};
 
   render() {
-    return <div>Testing</div>;
+    return (
+      <div>
+        <Title score={this.score}>Animals Memory Game with React.</Title>
+      </div>
+    );
   }
 }
 
