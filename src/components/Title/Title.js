@@ -6,7 +6,6 @@ class Title extends Component {
     return (
       <div>
         <h1 className="title">{this.props.children}</h1>
-        <p className="score">Scores: {console.log(this.props)}</p>
       </div>
     );
   }
