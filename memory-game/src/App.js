@@ -24,8 +24,8 @@ class App extends Component {
       animals[id].clicked = true;
       score++;
     } else {
+      score = 0;
       alert('Duh!! Try again. :)');
-      this.reset();
     }
 
     this.setState({
@@ -40,14 +40,6 @@ class App extends Component {
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-  };
-
-  reset = () => {
-    this.score = 0;
-    const animals = this.state.animals.map(card => {
-      card.clicked = false;
-      return animals;
-    });
   };
 
   render() {
