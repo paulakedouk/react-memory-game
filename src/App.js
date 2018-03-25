@@ -12,32 +12,26 @@ class App extends Component {
     super(props);
     this.state = {
       score: 0,
-      topScore: 0,
       animals
     };
   }
 
   clicked = id => {
-    const animals = this.state.animals.map(card => {
-      if (card.id === id) {
-        if (card.clicked === false) {
-          card.clicked = true;
-          this.score++;
-        } else {
-          alert('Duh!! Try again. :)');
-          this.reset();
-        }
-      } else {
-        if (this.score === 12) {
-          alert('YAY!');
-          this.resetGame();
-        }
-      }
-      return animals;
-    });
+    let { animals, score } = this.state;
 
-    // Push a new animal array
-    this.setState({ animals });
+    if (!animals[id].clicked) {
+      console.log(animals[id].clicked);
+      animals[id].clicked = true;
+      score++;
+    } else {
+      alert('Duh!! Try again. :)');
+      this.reset();
+    }
+
+    this.setState({
+      animals,
+      score
+    });
   };
 
   shuffle = array => {
@@ -57,18 +51,17 @@ class App extends Component {
   };
 
   render() {
+    // console.log(this.state.animals);
     return (
       <div>
-        <Title score={this.score}>Animals Memory Game with React.</Title>
+        <Title>Animals Memory Game with React.</Title>
         <div>
-          <h4 className="score">
-            Score: {this.state.score} | TopScore: {this.state.topScore}
-          </h4>
+          <h4 className="score">Score: {this.state.score}</h4>
         </div>
         <Wrapper>
           {this.shuffle(
             this.state.animals.map(card => (
-              <AnimalCard key={card.id} id={card.id} image={card.image} clicked={this.clicked} />
+              <AnimalCard key={card.id} id={card.id} image={card.image} clicked={this.clicked.bind(this, card.id)} />
             ))
           )}
         </Wrapper>
