@@ -25,6 +25,7 @@ class App extends Component {
       score++;
     } else {
       score = 0;
+      animals[id].clicked = false;
       alert('Duh!! Try again. :)');
     }
 
