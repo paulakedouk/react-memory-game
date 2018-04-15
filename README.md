@@ -2,6 +2,8 @@
 
 Game memory built with React and break up into components, manage component state, and respond to user events.
 
+<img src="/memory-game/public/memory-game.gif" alt="memory game gif" />
+
 ## How the game works
 
 * The application should keep track of the user's score. The user's score should be incremented when clicking an image for the first time. The user's score should be reset to 0 if they click the same image more than once.
